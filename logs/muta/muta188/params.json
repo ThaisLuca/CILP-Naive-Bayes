@@ -1,0 +1,1 @@
+{"89e5a9d6": {"mlp_params": {"hidden_sizes": [2], "activation": "Sigmoid", "input_size": 2347}, "optim": "Adam", "optim_params": {"lr": 0.01, "amsgrad": false}, "batch_size": 32, "data_dir": "datasets/muta/muta188"}}

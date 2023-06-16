@@ -5,6 +5,7 @@ from os import path as osp
 import numpy as np
 import scipy
 import torch
+from sklearn.naive_bayes import BernoulliNB
 from sklearn import tree
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 from sklearn.model_selection import StratifiedShuffleSplit
@@ -203,6 +204,17 @@ class CILP:
         y_tng = self.y[tng_idx]
         X_val = self.X[val_idx]
         y_val = self.y[val_idx]
+
+        metrics = defaultdict(list)
+        bnb = BernoulliNB()
+        y_pred = bnb.fit(X_tng, y_tng).predict_proba(X_val)
+        metrics.update({'classes': bnb.classes_})
+        metrics.update({'proba': y_pred})
+        metrics.update({'score': bnb.score(X_val, y_val)})
+
+        return metrics
+
+        # The code below is for using Neural Networks
 
         tng_dl = DataLoader(TensorDataset(torch.tensor(X_tng), torch.tensor(y_tng)),
                             shuffle=True,

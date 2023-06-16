@@ -8,6 +8,7 @@ from .utils import aleph_settings, create_script, load_examples, run_aleph, pjoi
 
 
 def run_bcp(data_dir, cached=True, print_output=False):
+    print('Running BCP')
     bc_file = pjoin(data_dir, 'bc.json')
     if osp.exists(bc_file) and cached:
         print('Loading from cache')

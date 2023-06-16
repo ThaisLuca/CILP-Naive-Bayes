@@ -31,8 +31,8 @@ def main(args):
 
 if __name__ == '__main__':
     PARSER = argparse.ArgumentParser()
-    PARSER.add_argument('--log-dir')
-    PARSER.add_argument('--data-dir')
+    PARSER.add_argument('--log-dir', nargs='?', default='logs/cora')
+    PARSER.add_argument('--data-dir', nargs='?', default='datasets/cora')
     PARSER.add_argument('--no-cache', action='store_true')
     PARSER.add_argument('--use-gpu', action='store_true')
     PARSER.add_argument('--trepan', action='store_true')

@@ -1,29 +1,48 @@
-countryhascompanyoffice(+country,+company).
-countryhascompanyoffice(+country,-company).
-countryhascompanyoffice(-country,+company).
-companyeconomicsector(+company,+sector).
-companyeconomicsector(+company,-sector).
-companyeconomicsector(-company,+sector).
-economicsectorcompany(+sector,`company).
-economicsectorcompany(`sector,+company).
-companyceo(+company,+person).
-companyceo(+company,-person).
-companyceo(-company,+person).
-companyalsoknownas(+company,+company).
-companyalsoknownas(+company,-company).
-companyalsoknownas(-company,+company).
-cityhascompanyoffice(+city,+company).
-cityhascompanyoffice(+city,-company).
-cityhascompanyoffice(-city,+company).
-acquired(+company,+company).
-acquired(+company,-company).
-acquired(-company,+company).
-bankbankincountry(+person,+country).
-bankbankincountry(+person,-country).
-bankbankincountry(-person,+country).
-bankboughtbank(+company,+company).
-bankboughtbank(+company,-company).
-bankboughtbank(-company,+company).
-bankchiefexecutiveceo(+company,+person).
-bankchiefexecutiveceo(+company,-person).
-bankchiefexecutiveceo(-company,+person).
+:- modeh(1,companyeconomicsector(+company,+sector)).
+:- modeh(1,companyeconomicsector(+company,-sector)).
+:- modeh(1,companyeconomicsector(-company,+sector)).
+
+:- modeb(*,countryhascompanyoffice(+country,+company)).
+:- modeb(*,countryhascompanyoffice(+country,-company)).
+:- modeb(*,countryhascompanyoffice(-country,+company)).
+
+:- modeb(*,companyceo(+company,+person)).
+:- modeb(*,companyceo(+company,-person)).
+:- modeb(*,companyceo(-company,+person)).
+
+:- modeb(*,companyalsoknownas(+company,+company)).
+:- modeb(*,companyalsoknownas(+company,-company)).
+:- modeb(*,companyalsoknownas(-company,+company)).
+
+:- modeb(*,cityhascompanyoffice(+city,+company)).
+:- modeb(*,cityhascompanyoffice(+city,-company)).
+:- modeb(*,cityhascompanyoffice(-city,+company)).
+
+:- modeb(*,acquired(+company,+company)).
+:- modeb(*,acquired(+company,-company)).
+:- modeb(*,acquired(-company,+company)).
+
+:- modeb(*,economicsectorcompany(+sector,`company)).
+:- modeb(*,economicsectorcompany(`sector,+company)).
+
+:- modeb(*,bankbankincountry(+person,+country)).
+:- modeb(*,bankbankincountry(+person,-country)).
+:- modeb(*,bankbankincountry(-person,+country)).
+
+:- modeb(*,bankboughtbank(+company,+company)).
+:- modeb(*,bankboughtbank(+company,-company)).
+:- modeb(*,bankboughtbank(-company,+company)).
+
+:- modeb(*,bankchiefexecutiveceo(+company,+person)).
+:- modeb(*,bankchiefexecutiveceo(+company,-person)).
+:- modeb(*,bankchiefexecutiveceo(-company,+person)).
+
+:- determination(companyeconomicsector/2,countryhascompanyoffice/2).
+:- determination(companyeconomicsector/2,companyceo/2).
+:- determination(companyeconomicsector/2,companyalsoknownas/2).
+:- determination(companyeconomicsector/2,cityhascompanyoffice/2).
+:- determination(companyeconomicsector/2,acquired/2).
+:- determination(companyeconomicsector/2,economicsectorcompany/2).
+:- determination(companyeconomicsector/2,bankbankincountry/2).
+:- determination(companyeconomicsector/2,bankboughtbank/2).
+:- determination(companyeconomicsector/2,bankchiefexecutiveceo/2).

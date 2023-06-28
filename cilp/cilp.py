@@ -5,7 +5,7 @@ from os import path as osp
 import numpy as np
 import scipy
 import torch
-from sklearn.naive_bayes import BernoulliNB, ComplementNB
+from sklearn.naive_bayes import BernoulliNB, ComplementNB, MultinomialNB
 from sklearn import tree
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 from sklearn.model_selection import StratifiedShuffleSplit
@@ -207,7 +207,8 @@ class CILP:
 
         metrics = defaultdict(list)
         #bnb = BernoulliNB()
-        bnb = ComplementNB(force_alpha=True)
+        #bnb = ComplementNB(force_alpha=True)
+        bnb = MultinomialNB()
         y_pred = bnb.fit(X_tng, y_tng).predict_proba(X_val)
         metrics.update({'classes': bnb.classes_})
         metrics.update({'proba': y_pred})
